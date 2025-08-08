@@ -1,0 +1,13 @@
+name: Lighthouse nightly
+on:
+  schedule: [{ cron: "0 6 * * *" }]   # every day 6:00 UTC
+  workflow_dispatch:
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm run build
+      - run: npx http-server public -p 8080 & sleep 2
+      - run: npx lhci autorun --collect.url=http://localhost:8080
