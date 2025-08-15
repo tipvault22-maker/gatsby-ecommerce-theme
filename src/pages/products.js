@@ -1,8 +1,9 @@
 / src/pages/products.js
 import React, { useMemo, useState } from "react";
 import ProductCard from "../components/ProductCard";
-
-// 🔖 Category labels (NO "drop shipping" ever shown)
+import React, { useMemo, useState } from "react";
+import ProductCard from "../components/ProductCard";
+import products from "../data/products";// 🔖 Category labels (NO "drop shipping" ever shown)
 const LABEL = (cat) =>
 cat === "dropship" ? "Products"
 : cat === "tshirt" ? "Apparel"
